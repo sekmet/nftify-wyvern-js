@@ -1,6 +1,6 @@
 {
   "name": "wyvern-js",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "Javascript SDK for the Wyvern Protocol",
   "main": "lib/index.js",
   "scripts": {
