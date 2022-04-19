@@ -455,7 +455,7 @@ public static async deployFrom0xArtifactAsync(
         txDefaults: Partial<TxData>,
         libraryAddresses: { [libraryName: string]: string } = {},
     ): Promise<{ [libraryName: string]: string }> {
-        const links = artifact.compilerOutput.evm.bytecode.linkReferences;
+        const links = artifact.compilerOutput.evm.bytecode.linkReferences || {};
         // Go through all linked libraries, recursively deploying them if necessary.
         for (const link of Object.values(links)) {
             for (const libraryName of Object.keys(link)) {
@@ -534,10 +534,9 @@ public static async deployFrom0xArtifactAsync(
 > {
         const self = this as any as AuthenticatedProxyContract;
         const functionSignature = 'proxyType()';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async callAsync(
                 callData: Partial<CallData> = {},
                 defaultBlock?: BlockParam,
@@ -565,10 +564,9 @@ public static async deployFrom0xArtifactAsync(
 > {
         const self = this as any as AuthenticatedProxyContract;
         const functionSignature = 'user()';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async callAsync(
                 callData: Partial<CallData> = {},
                 defaultBlock?: BlockParam,
@@ -591,10 +589,9 @@ public static async deployFrom0xArtifactAsync(
 > {
         const self = this as any as AuthenticatedProxyContract;
         const functionSignature = 'implementation()';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async callAsync(
                 callData: Partial<CallData> = {},
                 defaultBlock?: BlockParam,
@@ -617,10 +614,9 @@ public static async deployFrom0xArtifactAsync(
 > {
         const self = this as any as AuthenticatedProxyContract;
         const functionSignature = 'revoked()';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async callAsync(
                 callData: Partial<CallData> = {},
                 defaultBlock?: BlockParam,
@@ -643,10 +639,9 @@ public static async deployFrom0xArtifactAsync(
 > {
         const self = this as any as AuthenticatedProxyContract;
         const functionSignature = 'upgradeabilityOwner()';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async callAsync(
                 callData: Partial<CallData> = {},
                 defaultBlock?: BlockParam,
@@ -669,10 +664,9 @@ public static async deployFrom0xArtifactAsync(
 > {
         const self = this as any as AuthenticatedProxyContract;
         const functionSignature = 'registry()';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async callAsync(
                 callData: Partial<CallData> = {},
                 defaultBlock?: BlockParam,
@@ -703,10 +697,9 @@ public static async deployFrom0xArtifactAsync(
             assert.isString('token', token);
             assert.isString('extraData', extraData);
         const functionSignature = 'receiveApproval(address,uint256,address,bytes)';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async sendTransactionAsync(
                 txData?: Partial<TxData> | undefined,
                 opts: SendTransactionOpts = { shouldValidate: true },
@@ -773,10 +766,9 @@ public static async deployFrom0xArtifactAsync(
             assert.isString('addrUser', addrUser);
             assert.isString('addrRegistry', addrRegistry);
         const functionSignature = 'initialize(address,address)';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async sendTransactionAsync(
                 txData?: Partial<TxData> | undefined,
                 opts: SendTransactionOpts = { shouldValidate: true },
@@ -839,10 +831,9 @@ public static async deployFrom0xArtifactAsync(
         const self = this as any as AuthenticatedProxyContract;
             assert.isBoolean('revoke', revoke);
         const functionSignature = 'setRevoke(bool)';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async sendTransactionAsync(
                 txData?: Partial<TxData> | undefined,
                 opts: SendTransactionOpts = { shouldValidate: true },
@@ -908,10 +899,9 @@ public static async deployFrom0xArtifactAsync(
             assert.isNumberOrBigNumber('howToCall', howToCall);
             assert.isString('calldata', calldata);
         const functionSignature = 'proxy(address,uint8,bytes)';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async sendTransactionAsync(
                 txData?: Partial<TxData> | undefined,
                 opts: SendTransactionOpts = { shouldValidate: true },
@@ -979,10 +969,9 @@ public static async deployFrom0xArtifactAsync(
             assert.isNumberOrBigNumber('howToCall', howToCall);
             assert.isString('calldata', calldata);
         const functionSignature = 'proxyAssert(address,uint8,bytes)';
-        const selector = self._lookupAbiEncoder(functionSignature).getSelector();
 
         return {
-            selector,
+            selector: self._lookupAbiEncoder(functionSignature).getSelector(),
             async sendTransactionAsync(
                 txData?: Partial<TxData> | undefined,
                 opts: SendTransactionOpts = { shouldValidate: true },
