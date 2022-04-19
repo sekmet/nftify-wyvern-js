@@ -1,5 +1,5 @@
 {
-  "name": "@sekmet/wyvern-js",
+  "name": "wyvern-js",
   "version": "3.2.4",
   "description": "Javascript SDK for the Wyvern Protocol",
   "main": "lib/index.js",
